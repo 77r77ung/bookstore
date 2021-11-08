@@ -13,7 +13,7 @@ exports.addBook = async(req, res) => {
     let {book_number, book_name, book_amount, book_price} = req.body;
     try{
         await bookServices.addBook(book_number, book_name, book_amount, book_price);
-        return res.redirect('/addbook');
+        return res.redirect('addBook');
     }catch(err){
         return res.status(500).json(err);
     }
@@ -68,7 +68,7 @@ exports.detailBook = async (req, res) => {
 
 exports.detailBookPage = async(req, res) => {
     try{
-        return res.render('detailbook.ejs');
+        return res.render('/detailbook');
     }catch(err){
         return res.status(500).json(err);
     }
