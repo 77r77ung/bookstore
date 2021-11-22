@@ -1,0 +1,44 @@
+<!-- intro -->
+<div class="text-center">
+  <h1 class="display-1 mt-5 mb-4">
+    <% if (user_name != null) { %>
+      <%=user_name %>'s My Page
+  </h1>
+  <p>
+      Welcome, <%=user_name %>!
+  </p>
+</div>
+<br />
+
+<!-- address -->
+<div class='container mt-5'>
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">우편번호</th>
+          <th scope="col">기본 주소</th>
+          <th scope="col">상세 주소</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% for(let address of dest_info){ %>
+        <tr>
+          <th scope="row" style='vertical-align: middle'><%= address.postal_code %></th>
+          <td style='vertical-align: middle'><%= address.default_address %></td>
+          <td style='vertical-align: middle'><%= address.optional_address %></td>
+          <td>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+              <button type="button" class="btn btn-outline-primary" onclick="location.href='/myPage/updateDest/<%= dest.destination_uid %>'">Update</button>
+              <form action='/myPage/deleteDest/<%= address.address_number %>?_method=DELETE' method='post'>
+                <button type="submit" class="btn btn-outline-primary">Delete</button>
+              </form>
+          </div>
+          </td>
+        </tr>
+      <%}%>
+      </tbody>
+  </table>
+  <button type="button" class="btn btn-primary" onclick="location.href='/mypage/addAdd'">Add</button>
+</div>

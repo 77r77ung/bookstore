@@ -1,0 +1,11 @@
+exports.listAdd = 'select * from address where user_id=?'
+exports.addAdd = 'insert into address(address_number, postal_code, default_address, optional_address, user_id) values(?, ?, ?, ?, ?)'
+exports.updateAdd = 'update address set postal_code=?, default_addressr=?, optional_address=? where address_number=?'
+exports.detailAdd = 'select * from address where address_number=?'
+exports.deleteAdd = 'delete from address where address_number=?'
+
+exports.listCard = 'select * from card where user_id=?'
+exports.addCard = 'insert into card(card_number, card_type, expiry_date, user_id) values(?, ?, ?, ?)'
+exports.updateCard = 'update card set card_type=?, expiry_date=? where card_number=?'
+exports.detailAdd = 'select * from card where card_number=?'
+exports.deleteAdd = 'delete from card where card_number=?'

@@ -1,0 +1,35 @@
+<!-- intro -->
+    <div class="text-center">
+      <h1 class="display-1 mt-5 mb-4">Details of the book.</h1>
+      <p>
+        
+      </p>
+    </div>
+
+    <!-- card -->
+    <div class="container mt-5 text-center">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+              <p><%= detail_info[0].book_number %></p>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">
+                <p> <%= detail_info[0].book_name %> </p>
+              </h5>
+              <p class="card-text">
+                amount: <%= detail_info[0].book_amount %>권
+              </p>
+              <p class="card-text">
+                price: <%= detail_info[0].book_price %>원
+              </p>
+              <p class="card-text">
+                <%= detail_info[0].book_explain %>
+              </p>
+              <br />
+              <a href="/book/detailbook" class="btn btn-primary">Cart</a>
+              <a href="/book/detailbook" class="btn btn-primary">Purchase</a>
+            </div>
+          </div>
+        </div>

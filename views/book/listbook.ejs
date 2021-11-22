@@ -1,0 +1,36 @@
+<!-- intro -->
+    <div class="text-center">
+      <h1 class="display-1 mt-5 mb-4">Book Store</h1>
+      <p>
+        Hello!  This is an online book purchase site.
+      </p>
+    </div>
+
+<!-- table -->
+<div class='container'>
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Book Name</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <br />
+      <br />
+      <br />
+      <tbody>
+      <% for(let book of book_info){ %>
+        <tr>
+          <th scope="row"><%= book_info.indexOf(book) + 1 %></th>
+          <td><a href="/book/detailbook/<%= book.book_number %>"><%= book.book_name %></a></td>
+          <td><%= book.book_amount %>권</td>
+          <td><%= book.book_price %>원</td>
+        </tr>
+      <%}%>
+      </tbody>
+    </table><table class="table table-striped">
+      ...
+    </table>
+</div>
