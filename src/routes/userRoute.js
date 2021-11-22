@@ -15,7 +15,7 @@ router.post('/signin', userController.signIn);
 router.get('/signin', userController.signInPage);
 
 // 로그아웃
-router.post('/logout', userController.logout);
+router.get('/logout', userController.logout);
 
 // 책 메인
 module.exports = router;

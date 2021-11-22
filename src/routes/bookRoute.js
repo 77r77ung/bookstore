@@ -13,9 +13,9 @@ router.patch('/updateBook/:book_number', bookController.updateBook);
 router.delete('/deleteBook/:book_number', bookController.deleteBook);
 
 /* 도서 리스트 보기*/
-router.get('/listbook/:book_number', bookController.listBookPage);
+router.get('/listbook/:book_number', bookController.listBook);
 
 /* 도서 상세보기 */
-router.get('/detailbook/:book_number', bookController.detailBookPage);
+router.get('/detailbook/:book_number', bookController.detailBook);
 
 module.exports = router;

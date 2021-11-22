@@ -1,21 +1,22 @@
 var pool = require('../../database/book_db');
 var userQuery = require('../query/userQuery');
 
-exports.signUp = async(id, pw, name) => {
+exports.signUp = async(user_uid, user_password, user_name) => {
     try{
-        let signup = await pool.query(userQuery.signUp, [id, pw, name]);
-        return signup[0]
+        let signUp = await pool.query(userQuery.signUp, [user_uid, user_password, user_name]);
+        return signUp[0]
     }catch(err){
         console.log(err)
         throw Error(err)
     }
 }
 
-exports.signIn = async(id, pw) => {
+exports.signIn = async(user_uid, user_password) => {
     try{
-        let signin = await pool.query(userQuery.signIn, [id, pw])
-        return signin[0]
+        let signIn = await pool.query(userQuery.signIn, [user_uid, user_password])
+        return signIn[0]
     }catch(err){
+        console.log(error);
         throw Error(err);
     }
 }

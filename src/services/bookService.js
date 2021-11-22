@@ -2,19 +2,9 @@ var pool = require('../../database/book_db');
 var bookQuery = require('../query/bookQuery');
 
 
-exports.main = async() => {
+exports.addBook = async(book_name, book_amount, book_price) => {
     try{
-        let main = await pool.query(bookQuery.main)
-        return main[0]
-    }catch(err){
-        console.log(err)
-        throw Error(err)
-    }
-}
-
-exports.addBook = async(book_number, book_name, book_amount, book_price) => {
-    try{
-        let addBook = await pool.query(bookQuery.addBook, [book_number, book_name, book_amount, book_price])
+        let addBook = await pool.query(bookQuery.addBook, [book_name, book_amount, book_price])
         return addBook[0]
     }catch(err){
         console.log(err)

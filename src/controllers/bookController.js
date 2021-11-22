@@ -1,46 +1,23 @@
 var bookServices = require('../services/bookService');
-
-exports.main = async(req, res) => {
-    try{
-        let list = await bookServices.main();
-        return res.render('main', {list:list});
-    }catch(err){
-        return res.status(500).json(err);
-    }
-}
+const pool = require("../../database/book_db");
 
 exports.addBook = async(req, res) => {
-    let {book_number, book_name, book_amount, book_price} = req.body;
+    const {book_name, book_amount, book_price} = req.body;
+    const {book_number} = req.params;
     try{
-        await bookServices.addBook(book_number, book_name, book_amount, book_price);
-        return res.redirect('addBook');
-    }catch(err){
-        return res.status(500).json(err);
-    }
-}
-
-exports.addBookPage = async(req, res) => {
-    try{
-        return res.render('/addBook');
+        await bookServices.addBook(book_name, book_amount, book_price);
+        return res.redirect('/');
     }catch(err){
         return res.status(500).json(err);
     }
 }
 
 exports.updateBook = async(req, res) => {
-    let {book_name, book_amount, book_price} = req.body;
+    let {book_name, book_amount, book_price, book_explain} = req.body;
     let {book_number} = req.params;
     try{
-        await bookServices.updateBook(book_name, book_amount, book_price, book_number)
-        return res.redirect('updatebook')
-    }catch(err){
-        return res.status(500).json(err);
-    }
-}
-
-exports.updateBookPage = async(req, res) => {
-    try{
-        return res.render('/updateBook');
+        await bookServices.updateBook(book_name, book_amount, book_price, book_number, book_explain)
+        return res.redirect('/')
     }catch(err){
         return res.status(500).json(err);
     }
@@ -56,47 +33,35 @@ exports.deleteBook = async (req, res) => {
     }
 }
 
-exports.detailBook = async (req, res) => {
-    let {book_number, book_name, book_amount, book_price} = req.params
-    try{
-        let detail = await bookServices.detailBook(book_number, book_name, book_amount, book_price);
-        return res.render('detailBook', {detail:detail});
-    }catch(err){
-        return res.status(500).json(err);
-    }
-}
-
-exports.detailBookPage = async(req, res) => {
-    try{
-        return res.render('/detailbook');
-    }catch(err){
-        return res.status(500).json(err);
-    }
-}
-
 exports.listBook = async (req, res) => {
-    let {book_number} = req.params;
     try{
-        let list = await bookServices.listBook();
-        return res.render('listBook', {list:list});
+        let book_info = await bookServices.listBook();
+        let session = req.session.user_uid;
+        let user_name = req.session.user_name;
+        console.log(user_name)
+        return res.render('main', {
+            page: './book/listbook',
+            session: session,
+            book_info: book_info,
+            user_name : user_name
+        })
     }catch(err){
         return res.status(500).json(err);
     }
 }
-
-exports.listBookPage = async(req, res) => {
-    try{
-        return res.render('main');
-    }catch(err){
-        return res.status(500).json(err);
-    }
-}
-
 
 exports.detailBook = async (req, res) => {
+    let {book_number} = req.params
+
     try{
-        res.rener('detailBook');
-    }catch{
+        let detail_info = await bookServices.detailBook(book_number)
+        let session = req.session.user_id
+        return res.render('main', {
+            page:'./book/detailbook',
+            session: session,
+            detail_info: detail_info
+        })
+    }catch(err){
         return res.status(500).json(err);
     }
 }
