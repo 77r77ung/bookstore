@@ -1,10 +1,19 @@
 var pool = require('../../database/book_db');
-const { detailBook } = require('../query/bookQuery');
 var mypageQuery = require('../query/mypageQuery');
 
-exports.listAdd = async(user_id) => {
+exports.addReco = async(user_reco) => {
     try{
-        let list = await pool.query(mypageQuery.listAdd, [user_id])
+        let add = await pool.query(mypageQuery.addReco, [user_reco])
+        return add[0]
+    }catch(err){
+        console.log(err)
+        throw Error(err)
+    }
+}
+
+exports.listAdd = async(user_user_uid) => {
+    try{
+        let list = await pool.query(mypageQuery.listAdd, [user_user_uid])
         return list[0]
     }
     catch(err){
@@ -13,9 +22,9 @@ exports.listAdd = async(user_id) => {
     }
 }
 
-exports.addAdd = async(adderss_number, postal_code, default_address, optional_address, user_id) => {
+exports.addAdd = async(adderss_number, postal_code, default_address, optional_address, user_user_uid) => {
     try{
-        let add = await pool.query(mypageQuery.addAdd, [adderss_number, postal_code, default_address, optional_address, user_id])
+        let add = await pool.query(mypageQuery.addAdd, [adderss_number, postal_code, default_address, optional_address, user_user_uid])
         return add[0]
     }catch(err){
         console.log(err)
@@ -45,7 +54,7 @@ exports.detailAdd = async(address_number) => {
 
 exports.deleteAdd = async (address_number) => {
     try{
-        let del = await pool.query(myPageQuery.deleteAdd, [address_number])
+        let del = await pool.query(mypageQuery.deleteAdd, [address_number])
         return del[0]
     }catch (error) {
         console.log(error)
@@ -54,9 +63,9 @@ exports.deleteAdd = async (address_number) => {
 
 }
 
-exports.listCard = async(user_id) => {
+exports.listCard = async(user_user_uid) => {
     try{
-        let list = await pool.query(mypageQuery.listCard, [user_id])
+        let list = await pool.query(mypageQuery.listCard, [user_user_uid])
         return list[0]
     }catch(err){
         console.log(err)
@@ -64,9 +73,9 @@ exports.listCard = async(user_id) => {
     }
 }
 
-exports.addCard = async(card_number, card_type, expiry_date, user_id) => {
+exports.addCard = async(card_number, card_type, expiry_date, user_user_uid) => {
     try{
-        let add = await pool.query(mypageQuery.addCard, [card_number, card_type, expiry_date, user_id])
+        let add = await pool.query(mypageQuery.addCard, [card_number, card_type, expiry_date, user_user_uid])
         return add[0]
     }catch(err){
         console.log(err)

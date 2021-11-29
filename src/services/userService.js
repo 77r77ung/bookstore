@@ -6,6 +6,7 @@ exports.signUp = async(user_uid, user_password, user_name) => {
         let signUp = await pool.query(userQuery.signUp, [user_uid, user_password, user_name]);
         return signUp[0]
     }catch(err){
+        if(err.errno == 1062) return 1062
         console.log(err)
         throw Error(err)
     }

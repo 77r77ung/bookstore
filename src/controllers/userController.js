@@ -5,8 +5,6 @@ exports.signIn = async(req, res) => {
     const { user_uid, user_password } = req.body;
     try{
         let signIn = await userServices.signIn(user_uid, user_password);
-        console.log('aa');
-        console.log(signIn[0].user_uid);
         req.session.user_uid = signIn[0].user_uid;
         req.session.user_name = signIn[0].user_name;
         console.log("session : ",req.session.user_uid)
@@ -36,7 +34,8 @@ exports.signUp = async(req, res) => {
     req= require / const id, const pw, pass name을 추출해서 body에 있다. */
     const {user_uid, user_password, user_name} = req.body;
     try{
-        await userServices.signUp(user_uid, user_password, user_name);
+        let signUp = await userServices.signUp(user_uid, user_password, user_name)
+
         if(signUp == 1062){
             return res.send(`<script type="text/javascript">
                 alert("이미 사용중인 아이디입니다."); 

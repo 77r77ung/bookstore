@@ -3,23 +3,26 @@ var router = express.Router();
 
 const mypageController = require('../controllers/mypageController')
 
-router.get('/main/:user_id', mypageController.mypage);
+router.get('/main/:user_user_uid', mypageController.mypage);
 
-router.post('/addAdd/:user_id', mypageController.addAdd);
-router.get('/addAddPage/', mypageController.addAddPage);
+router.post('/addReco/:user_uid', mypageController.addReco);
+router.get('/addReco', mypageController.addRecoPage);
 
-router.patch('/main/:address_number', mypageController.updateAdd);
+router.post('/addAdd/:user_user_uid', mypageController.addAdd);
+router.get('/addAdd/', mypageController.addAddPage);
+
+router.patch('/updateAdd/:address_number', mypageController.updateAdd);
 router.get('/upadateAdd/', mypageController.updateAddPage);
 
-router.delete('/deleteAdd/:user_id', mypageController.deleteAdd);
+router.delete('/deleteAdd/:user_user_uid', mypageController.deleteAdd);
 
 
-router.post('/addCard/:user_id', mypageController.addCard);
-router.get('/addCardPage/', mypageController.addCardPage);
+router.post('/addCard/:user_user_uid', mypageController.addCard);
+router.get('/addCard/', mypageController.addCardPage);
 
-router.patch('/main/:card_number', mypageController.updateCard);
-router.get('/updateCardPage/', mypageController.updateCardPage);
+router.patch('/updateCard/:card_number', mypageController.updateCard);
+router.get('/updateCard/', mypageController.updateCardPage);
 
-router.delete('/deleteCard/:user_id', mypageController.deleteCard);
+router.delete('/deleteCard/:user_user_uid', mypageController.deleteCard);
 
 module.exports = router;

@@ -1,0 +1,21 @@
+<!-- addAdd 
+        address_number, postal_code, default_address, optional_address, user_uid -->
+<div class='w-50 container mt-5'>
+    <form id='frm' action='/mypage/addAdd/<%= session %>' method='post'>
+      <div class="col-auto mb-3">
+        <label class="col-form-label">우편번호</label>
+        <input name='postal_code' data-name='우편번호'type="text" class="form-control" required>
+      </div>
+      <div class="col-auto mb-3">
+        <label class="col-form-label">기본주소</label>
+        <input name='default_address' data-name='기본주소' type="text" class="form-control" required>
+      </div>
+      <div class="col-auto mb-5">
+        <label class="col-form-label">상세주소</label>
+        <input name='optional_address' data-name='상세주소' type="text" class="form-control" required>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="w-100 btn btn-primary btn-lg" style='height: 65px';>확인</button>
+      </div>
+    </form>
+</div>

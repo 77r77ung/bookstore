@@ -1,0 +1,18 @@
+<!-- updateCard -->
+<div class='w-50 container mt-5'>
+    <form id='frm' action='/mypage/updateCard/<%= card_info[0].card_number %>?_method=PATCH' method='post'>
+      <div class="col-auto mb-3">
+        <label class="col-form-label">카드 번호: <%= card_info[0].card_number %></label>
+      </div>
+      <div class="col-auto mb-3">
+        <label class="col-form-label">카드 유효기간</label>
+        <input name='expiry_date' data-name='카드 유효기간' type="text" class="form-control" value='<%= card_info[0].expiry_date %>' required>
+      </div>
+      <div class="col-auto mb-5">
+        <label class="col-form-label">카드 종류</label>
+        <input name='card_type' data-name='카드 종류' type="text" class="form-control" value='<%= card_info[0].card_type %>' required>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="w-100 btn btn-primary btn-lg" style='height: 65px';>확인</button>
+      </div>
+    </form>
