@@ -3,11 +3,11 @@ const mypageService = require('../services/mypageService');
 exports.mypage = async(req, res) => {
     const { user_user_uid } = req.params
     try{
-        const add_info = await mypageService.listAdd(user_user_uid)
-        const card_info = await mypageService.listCard(user_user_uid)
-        const session = req.session.user_name
-        return res.render('./mypage/mypage', { 
-            // page: './mypage/mypage',
+        let add_info = await mypageService.listAdd(user_user_uid)
+        let card_info = await mypageService.listCard(user_user_uid)
+        let session = req.session.user_uid
+        return res.render('main', { 
+            page: './mypage/mypage',
             session: session, 
             add_info: add_info,
             card_info: card_info

@@ -9,6 +9,3 @@ exports.addCard = 'insert into card(card_number, card_type, expiry_date, user_us
 exports.updateCard = 'update card set card_type=?, expiry_date=? where card_number=?'
 exports.detailCard = 'select * from card where card_number=?'
 exports.deleteCard = 'delete from card where card_number=?'
-
-exports.addReco = 'insert into user(user_reco, user_uid) values(?)'
-exports.upadatePoint = 'update user set point = (point + 10000) where user_uid = ?'

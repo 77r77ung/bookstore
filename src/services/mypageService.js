@@ -1,15 +1,6 @@
 var pool = require('../../database/book_db');
 var mypageQuery = require('../query/mypageQuery');
 
-exports.addReco = async(user_reco) => {
-    try{
-        let add = await pool.query(mypageQuery.addReco, [user_reco])
-        return add[0]
-    }catch(err){
-        console.log(err)
-        throw Error(err)
-    }
-}
 
 exports.listAdd = async(user_user_uid) => {
     try{
@@ -106,6 +97,7 @@ exports.detailCard = async(card_number) => {
 exports.deleteCard = async(card_number) => {
     try{
         let del =await pool.query(mypageQuery.deleteCard, [card_number])
+        return del[0]
     }catch(err){
         console.log(err)
         throw Error(err)

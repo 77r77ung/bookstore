@@ -3,14 +3,15 @@ var router = express.Router();
 
 const mypageController = require('../controllers/mypageController')
 
+//마이페이지
 router.get('/main/:user_user_uid', mypageController.mypage);
 
-router.post('/addReco/:user_uid', mypageController.addReco);
-router.get('/addReco', mypageController.addRecoPage);
 
+// 주소지 추가
 router.post('/addAdd/:user_user_uid', mypageController.addAdd);
 router.get('/addAdd/', mypageController.addAddPage);
 
+//주소 수정
 router.patch('/updateAdd/:address_number', mypageController.updateAdd);
 router.get('/upadateAdd/', mypageController.updateAddPage);
 

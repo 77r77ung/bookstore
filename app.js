@@ -10,7 +10,6 @@ var methodOverride = require('method-override');
 
 // 라우터 연결
 // var indexRouter = require('./src/routes/index');
-// var usersRouter = require('./src/routes/users');
 
 var mainRouter = require('./src/routes/mainRoute');
 var userRouter = require('./src/routes/userRoute');
