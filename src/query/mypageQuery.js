@@ -1,6 +1,6 @@
 exports.listAdd = 'select * from address where user_user_uid=?'
 exports.addAdd = 'insert into address(address_number, postal_code, default_address, optional_address, user_user_uid) values(?, ?, ?, ?, ?)'
-exports.updateAdd = 'update address set postal_code=?, default_addressr=?, optional_address=? where address_number=?'
+exports.updateAdd = 'update address set postal_code=?, default_address=?, optional_address=? where address_number=?'
 exports.detailAdd = 'select * from address where address_number=?'
 exports.deleteAdd = 'delete from address where address_number=?'
 

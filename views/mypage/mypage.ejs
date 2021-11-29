@@ -1,13 +1,21 @@
+<!-- intro -->
+<div class="text-center">
+  <h1 class="display-1 mt-5 mb-4"><%= session %> 's My Page</h1>
+  <p>
+    
+  </p>
+</div>
+
 <!-- address -->
     <div class='container mt-5'>
-      <table class="table table-striped">
+      <h3> Address </h3>
+      <table class="table">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">우편번호</th>
-              <th scope="col">기본 주소</th>
-              <th scope="col">상세 주소</th>
-              <th scope="col"></th>
+              <th scope="col" style='width: 33%'>우편번호</th>
+              <th scope="col" style='width: 33%'>기본 주소</th>
+              <th scope="col" style='width: 33%'>상세 주소</th>
+              <th scope="col">Update / Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -18,9 +26,9 @@
               <td style='vertical-align: middle'><%= address.optional_address %></td>
               <td>
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                  <button type="button" class="btn btn-outline-primary" onclick="location.href='/mypage/updateAdd/<%= address.address_number %>'">Update</button>
+                  <button type="button" class="btn btn-outline-info" onclick="location.href='/mypage/updateAdd/<%= address.address_number %>'">Update</button>
                   <form action='/mypage/deleteAdd/<%= address.address_number %>?_method=DELETE' method='post'>
-                    <button type="submit" class="btn btn-outline-primary">Delete</button>
+                    <button type="submit" class="btn btn-outline-info">Delete</button>
                   </form>
               </div>
               </td>
@@ -28,18 +36,19 @@
           <% } %>
           </tbody>
       </table>
-      <button type="button" class="btn btn-primary" onclick="location.href='/mypage/addAdd'">Add</button>
+      <button type="button" class="btn btn-info btn-lg btn-block" onclick="location.href='/mypage/addAdd'">Add</button>
     </div>
 
     <!-- card -->
     <div class='container mt-5'>
+      <h3> Card </h3>
       <table class="table">
           <thead>
             <tr>
               <th scope="col" style='width: 33%'>신용카드 번호</th>
               <th scope="col" style='width: 33%'>신용카드 종류</th>
               <th scope="col" style='width: 20%'>신용카드 유효기간</th>
-              <th scope="col"></th>
+              <th scope="col">Update / Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -50,9 +59,9 @@
               <td style='vertical-align: middle'><%= card.expiry_date %></td>
               <td>
                   <div class="btn-group" role="group" aria-label="Basic outlined example">
-                      <button type="button" class="btn btn-outline-primary" onclick="location.href='/mypage/updateCard/<%= card.card_number %>'">수정</button>
+                      <button type="button" class="btn btn-outline-info" onclick="location.href='/mypage/updateCard/<%= card.card_number %>'">Update</button>
                       <form action='/mypage/deleteCard/<%= card.card_number %>?_method=DELETE' method='post'>
-                        <button type="submit" class="btn btn-outline-primary">삭제</button>
+                        <button type="submit" class="btn btn-outline-info">Delete</button>
                       </form>
                   </div>
               </td>
@@ -60,7 +69,7 @@
           <% } %>
           </tbody>
         </table>
-      <button type="button" class="btn btn-primary" onclick="location.href='/mypage/addCard'">추가</button>
+      <button type="button" class="btn btn-info btn-lg btn-block" onclick="location.href='/mypage/addCard'">Add</button>
     </div>
 
 

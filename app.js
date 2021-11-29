@@ -15,6 +15,7 @@ var mainRouter = require('./src/routes/mainRoute');
 var userRouter = require('./src/routes/userRoute');
 var bookRouter = require('./src/routes/bookRoute');
 var mypageRouter = require('./src/routes/mypageRoute');
+var orderRouter = require('./src/routes/orderRoute');
 
 
 
@@ -55,6 +56,7 @@ app.use('/', mainRouter);
 app.use('/user', userRouter);
 app.use('/book', bookRouter);
 app.use('/mypage', mypageRouter);
+app.use('/order', orderRouter);
 
 
 

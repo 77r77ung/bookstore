@@ -55,7 +55,7 @@ exports.detailBook = async (req, res) => {
 
     try{
         let detail_info = await bookServices.detailBook(book_number)
-        let session = req.session.user_id
+        let session = req.session.user_name
         return res.render('main', {
             page:'./book/detailbook',
             session: session,

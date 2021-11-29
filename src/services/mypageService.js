@@ -25,7 +25,7 @@ exports.addAdd = async(adderss_number, postal_code, default_address, optional_ad
 
 exports.updateAdd = async(postal_code, default_address, optional_address, adderss_number) => {
     try{
-        let update = await pool.query(mypageQuery.updateCard, [postal_code, default_address, optional_address, adderss_number])
+        let update = await pool.query(mypageQuery.updateAdd, [postal_code, default_address, optional_address, adderss_number])
         return update[0]
     }catch(err){
         console.log(err)

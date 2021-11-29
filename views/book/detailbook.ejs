@@ -1,6 +1,6 @@
 <!-- intro -->
     <div class="text-center">
-      <h1 class="display-1 mt-5 mb-4">Details of the book.</h1>
+      <h1 class="display-1 mt-5 mb-4">Details of the book</h1>
       <p>
         
       </p>
@@ -28,8 +28,8 @@
                 <%= detail_info[0].book_explain %>
               </p>
               <br />
-              <a href="/book/detailbook" class="btn btn-primary">Cart</a>
-              <a href="/book/detailbook" class="btn btn-primary">Purchase</a>
+              <a href="" class="btn btn-info">Cart</a>
+              <a onclick="location.href='/order/orderPage/<%= detail_info[0].book_number %>'" class="btn btn-info">Purchase</a>
             </div>
           </div>
         </div>
