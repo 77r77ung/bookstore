@@ -16,6 +16,7 @@ var userRouter = require('./src/routes/userRoute');
 var bookRouter = require('./src/routes/bookRoute');
 var mypageRouter = require('./src/routes/mypageRoute');
 var orderRouter = require('./src/routes/orderRoute');
+var cartRouter = require('./src/routes/cartRoute');
 
 
 
@@ -57,6 +58,7 @@ app.use('/user', userRouter);
 app.use('/book', bookRouter);
 app.use('/mypage', mypageRouter);
 app.use('/order', orderRouter);
+app.use('/cart', cartRouter);
 
 
 

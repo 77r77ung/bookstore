@@ -12,14 +12,14 @@
             </tr>
             </thead>
             <tbody>
-            <% for(let order of order_info){ %>
+            <% for(let orders of order_info){ %>
             <tr>
-                <th  style='vertical-align: middle'><a href=''><%= order.order_number %></a></th>
-                <td  style='vertical-align: middle'><%= order.order_date %></a></td>
-                <td  style='vertical-align: middle'><%= order.order_total %></td>
+                <th  style='vertical-align: middle'><a href=''><%= orders.order_number %></a></th>
+                <td  style='vertical-align: middle'><%= orders.order_date %></a></td>
+                <td  style='vertical-align: middle'><%= orders.order_total %></td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
-                        <button type="button" class="btn btn-outline-info" onclick="location.href='/order/deleteOrder/<%= order.order_number %>'">Delete</button>
+                        <button type="button" class="btn btn-outline-info" onclick="location.href='/order/deleteOrder/<%= orders.order_number %>'">Delete</button>
                     </div>
                 </td>
             </tr>

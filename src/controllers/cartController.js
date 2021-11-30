@@ -12,7 +12,7 @@ exports.cartOrder = async (req, res) => {
         let add_info = await mypageService.listAdd(session)
         await cartService.deleteItem2(cart_number)
         await cartService.deleteCart(cart_number)
-        
+
         return res.render('main', {
             page:'./order/order',
             session:session,
@@ -29,7 +29,7 @@ exports.cartOrder = async (req, res) => {
 }
 
 exports.cartPage = async (req, res) => {
-    
+
     try{
         let session = req.session.user_uid
         let cart_info = await cartService.cartDetail(session)
@@ -54,7 +54,7 @@ exports.cartPage = async (req, res) => {
 }
 
 exports.addItem = async (req, res) => {
-    
+
     const { book_number } = req.params
 
     try{
@@ -76,7 +76,7 @@ exports.addItem = async (req, res) => {
 
         return res.send(`<script type="text/javascript">
                 alert("장바구니에 추가되었습니다."); 
-                location.href='/cart/cartPage';
+                location.href='/basket/cartPage';
                 </script>`);
     }
 
@@ -87,7 +87,7 @@ exports.addItem = async (req, res) => {
 }
 
 exports.deleteItem = async (req, res) => {
-    
+
     const { book_number } = req.params
 
     try{
