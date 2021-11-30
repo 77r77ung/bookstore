@@ -1,0 +1,33 @@
+<div class='container mt-5'>
+    <!-- table -->
+    <div class='container'>
+        <h2>생성 일자: <%= cart_info[0].cart_date %> </h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">책 이름</th>
+                <th scope="col">가격</th>
+                <th scope="col">수량</th>
+                <th scope="col"></th>
+          </tr>
+            </tr>
+            </thead>
+            <tbody>
+            <% for(let item of item_info){ %>
+            <tr>
+                <th  style='vertical-align: middle'><%= item.book_name %></a></th>
+                <td  style='vertical-align: middle'><%= item.book_price %></a></td>
+                <td> 1 </td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <button type="button" class="btn btn-outline-info" onclick="location.href='/cart/deleteItem/<%= item.book_number %>'">삭제</button>
+                    </div>
+                </td>
+            </tr>
+            <% } %>
+            </tbody>
+        </table><table class="table table-striped">
+        </table>
+        <button type="button" class="btn btn-info btn-lg btn-block" onclick="location.href='/cart/cartOrder/<%= cart_info[0].cart_number %>'">구매</button>
+    </div>
+</div>
