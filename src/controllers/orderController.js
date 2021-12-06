@@ -85,7 +85,7 @@ exports.orderDetailPage = async (req, res) => {
         let bookList_info = await orderService.orderBookList(order_number)
 
         return res.render('main', {
-            page: './order/orderList',
+            page: './order/orderDetail',
             session:session,
             order_info:order_info,
             bookList_info:bookList_info
