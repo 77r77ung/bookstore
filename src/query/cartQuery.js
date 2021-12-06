@@ -1,4 +1,4 @@
-exports.itemDetail = 'select a.cart_cart_number, a.book_book_number, b.book_name, b.book_amount, b.book_price, b.book_explain from cart_list a, book b where a.book_book_number = b.book_number and a.cart_cart_number=?'
+exports.itemDetail = 'select a.cart_cart_number, a.book_book_number, b.book_number, b.book_name, b.book_amount, b.book_price, b.book_explain from cart_list a, book b where a.book_book_number = b.book_number and a.cart_cart_number=?'
 
 exports.cartDetail = 'select * from cart where user_user_uid=? order by cart_date'
 

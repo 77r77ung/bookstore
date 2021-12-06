@@ -79,7 +79,7 @@ exports.addItem = async (req, res) => {
 
         return res.send(`<script type="text/javascript">
                 alert("장바구니에 추가되었습니다."); 
-                location.href='/basket/cartPage';
+                location.href='/cart/cartPage';
                 </script>`);
     }
 
