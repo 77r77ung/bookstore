@@ -33,9 +33,12 @@ exports.cartPage = async (req, res) => {
     try{
         let session = req.session.user_uid
         let cart_info = await cartService.cartDetail(session)
-        console.log(cart_info)
+        /* node의 순환 의존성 문제 해결... 아래 주석은 순환 의존성이 발생하는 코드!
         let cart = cart_info[0]
-        let cart_number = cart.cart_number
+        console.log(cart_info)
+        let cart_number = cart[cart_number[0]]*/
+        let cart_number = cart_info[0].cart_number
+        
 
         let item_info = await cartService.itemDetail(cart_number)
 

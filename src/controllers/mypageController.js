@@ -70,7 +70,7 @@ exports.deleteAdd = async (req, res) => {
     const { address_number } = req.params
     try{
         await mypageService.deleteAdd(address_number)
-        return res.redirect('./mypage/main/' + req.session.user_uid)
+        return res.redirect('/mypage/main/' + req.session.user_uid)
     }catch(err){
     return res.status(500).json(err)
     }
@@ -81,7 +81,7 @@ exports.addCard = async (req, res) => {
     const { user_user_uid } = req.params
     try{
         await mypageService.addCard(card_number, card_type, expiry_date, user_user_uid)
-        return res.redirect('./mypage/main/'+user_user_uid)
+        return res.redirect('/mypage/main/'+user_user_uid)
     }catch(err){
         return res.status(500).json(err)
     }
@@ -101,7 +101,7 @@ exports.updateCard = async (req, res) => {
     const { card_number } = req.params
     try{
         await mypageService.updateCard(card_type, expiry_date, card_number)
-        return res.redirect('./mypage/main/'+req.session.user_uid)
+        return res.redirect('/mypage/main/'+req.session.user_uid)
     }catch(err){
         return res.status(500).json(err)
     }
@@ -125,7 +125,7 @@ exports.deleteCard = async (req, res) => {
     const { card_number } = req.params
     try{
         await mypageService.deleteCard(card_number)
-        return res.redirect('./mypage/main/'+req.session.user_user_uid)
+        return res.redirect('/mypage/main/'+req.session.user_uid)
     }catch(err){
         return res.status(500).json(err)
     }
