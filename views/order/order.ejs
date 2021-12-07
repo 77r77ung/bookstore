@@ -47,21 +47,35 @@
     <select class="form-select" name="card_number" aria-label="Default select example">
         <option selected>카드를 선택하세요</option>
         <% for(let card of card_info){ %>
-        <option value="<%= card.card_number %>"> <%= card.card_type + card.card_number %> </option>
+        <option value="<%= card.card_number %>"> <%= card.card_type + " " + card.card_number %> </option>
         <%}%>
     </select>
+    <br />
 
     <!-- dest -->
     주소지 선택
     <select class="form-select" name="address_number" aria-label="Default select example">
         <option selected>배송지를 선택하세요</option>
         <% for(let address of add_info){ %>
-        <option value="<%=address.address_number %>"> <%= address.default_address + address.optional_address %> </option>
+        <option value="<%=address.address_number %>"> <%= address.default_address + " " + address.optional_address %> </option>
+        <%}%>
+    </select>
+    <br />
+
+    <!-- coupon -->
+    쿠폰 선택
+    <select class="form-select" name="user_user_uid" aria-label="Default select example">
+        <option selected>쿠폰을 선택하세요</option>
+        <% for(let coupon of coupon_info){ %>
+        <option value="<%=coupon.coupon_info %>"> <%= coupon.coupon_coupon_uid %> </option>
         <%}%>
     </select>
 
+    <br />
+    <br />
+    <br />
 <div class="form-group">
-    <button type="submit" class="btn btn-primary btn-lg">구매</button>
+    <button type="submit" class="btn btn-info btn-lg btn-block">구매</button>
 </div>
 
 </form>

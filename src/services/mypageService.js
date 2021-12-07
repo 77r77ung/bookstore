@@ -103,3 +103,15 @@ exports.deleteCard = async(card_number) => {
         throw Error(err)
     }
 }
+
+
+exports.listCoupon = async(user_user_uid) => {
+    try{
+        let coupon_list = await pool.query(mypageQuery.listCoupon, [user_user_uid])
+        return coupon_list[0]
+    }
+    catch(err){
+        console.log(err)
+        throw Error(err)
+    }
+}

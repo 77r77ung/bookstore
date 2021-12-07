@@ -2,15 +2,18 @@ const mypageService = require('../services/mypageService');
 
 exports.mypage = async(req, res) => {
     const { user_user_uid } = req.params
+
     try{
         let add_info = await mypageService.listAdd(user_user_uid)
         let card_info = await mypageService.listCard(user_user_uid)
+        let coupon_info = await mypageService.listCoupon(user_user_uid)
         let session = req.session.user_uid
         return res.render('main', { 
             page: './mypage/mypage',
             session: session, 
             add_info: add_info,
-            card_info: card_info
+            card_info: card_info,
+            coupon_info:coupon_info
         })
     }catch(err){
         return res.status(500).json(err)

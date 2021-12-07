@@ -1,9 +1,10 @@
 var pool = require('../../database/book_db')
+const { order } = require('../controllers/orderController')
 var orderQuery = require('../query/orderQuery')
 
-exports.addOrder = async(order_number, order_date, order_total, postal_code, default_address, optional_address, card_number, card_type, expiry_date, user_user_uid) => {
+exports.addOrder = async(order_number, order_date, order_total, postal_code, default_address, optional_address, card_number, card_type, expiry_date, user_user_uid, coupon_discnt) => {
     try{
-        let addOrder = await pool.query(orderQuery.addOrder, [order_number, order_date, order_total, postal_code, default_address, optional_address, card_number, card_type, expiry_date, user_user_uid])
+        let addOrder = await pool.query(orderQuery.addOrder, [order_number, order_date, order_total, postal_code, default_address, optional_address, card_number, card_type, expiry_date, user_user_uid, coupon_discnt])
         return addOrder[0]
     }catch(err){
         console.log(err)
@@ -101,3 +102,34 @@ exports.deleteOrder = async(order_number) => {
     }
 }
 
+/*
+exports.updateCoupon = async(order_total, coupon_discnt, order_number) => {
+    try{
+        let updateCoupon = await pool.query(orderQuery.updateCoupon, [order_total, coupon_discnt, order_number])
+        return updateCoupon[0]
+    }catch(err){
+        console.log(err)
+        throw Error(err)
+    }
+}
+*/
+
+exports.deleteCoupon = async(coupon_coupon_uid) => {
+    try{
+        let coupon_del = await pool.query(orderQuery.deleteCoupon, [coupon_coupon_uid])
+        return coupon_del[0]
+    }catch(err){
+        console.log(err)
+        throw Error(err)
+    }
+}
+
+exports.getCoupon = async(user_user_uid) => {
+    try{
+        let getCoupon = await pool.query(orderQuery.getCoupon, [user_user_uid])
+        return getCoupon[0]
+    }catch(err){
+        console.log(err)
+        throw Error(err)
+    }
+}
